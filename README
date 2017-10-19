@@ -23,7 +23,7 @@ DESCRIPTION
      The jecho utility writes its arguments joined together to standard
      output.
 
-     The necho utility writes its arguments, separated by spaces, to standard
+     The secho utility writes its arguments, separated by spaces, to standard
      output, followed by a <newline>.  If there are no arguments, only the
      <newline> is written.
 
