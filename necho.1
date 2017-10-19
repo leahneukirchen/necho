@@ -1,0 +1,68 @@
+.Dd October 19, 2017
+.Dt NECHO 1
+.Os
+.Sh NAME
+.Nm necho ,
+.Nm zecho ,
+.Nm qecho ,
+.Nm jecho ,
+.Nm secho
+.Nd minimal, sensible alternatives to echo(1)
+.Sh SYNOPSIS
+.Nm necho
+.Op Ar string\ ...
+.Nm zecho
+.Op Ar string\ ...
+.Nm qecho
+.Op Ar string\ ...
+.Nm jecho
+.Op Ar string\ ...
+.Nm secho
+.Op Ar string\ ...
+.Sh DESCRIPTION
+The
+.Nm necho
+utility writes its arguments, one per line, to standard output.
+.Pp
+The
+.Nm zecho
+utility writes its arguments, terminated by NUL bytes, to standard output.
+.Pp
+The
+.Nm qecho
+utility writes its arguments, surrounded by unicode quotation marks, to standard output.
+.Pp
+The
+.Nm jecho
+utility writes its arguments joined together to standard output.
+.Pp
+The
+.Nm secho
+utility writes its arguments, separated by spaces, to standard output,
+followed by a <newline>.
+If there are no arguments, only the <newline> is written.
+.Sh OPTIONS
+Implementations do not support any options,
+nor special handling of a
+.Dq Li \&-\&-
+argument.
+.Sh EXIT STATUS
+These utilities exit 0 on success, and >0 if an error occurs.
+.Sh SEE ALSO
+.Xr echo 1 ,
+.Xr printf 1
+.Sh STANDARDS
+.Nm secho
+is a POSIX-conforming, but not XSI-conforming implementation of
+.Xr echo 1 .
+.Sh AUTHORS
+.An Leah Neukirchen Aq Mt leah@vuxu.org
+.Sh LICENSE
+These utilities are in the public domain.
+.Pp
+To the extent possible under law,
+the creator of this work
+has waived all copyright and related or
+neighboring rights to this work.
+.Pp
+.Lk http://creativecommons.org/publicdomain/zero/1.0/
