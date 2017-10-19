@@ -1,0 +1,55 @@
+NECHO(1)                    General Commands Manual                   NECHO(1)
+
+NAME
+     necho, zecho, qecho, jecho, secho – minimal, sensible alternatives to
+     echo(1)
+
+SYNOPSIS
+     necho [string ...]
+     zecho [string ...]
+     qecho [string ...]
+     jecho [string ...]
+     secho [string ...]
+
+DESCRIPTION
+     The necho utility writes its arguments, one per line, to standard output.
+
+     The zecho utility writes its arguments, terminated by NUL bytes, to
+     standard output.
+
+     The qecho utility writes its arguments, surrounded by unicode quotation
+     marks, to standard output.
+
+     The jecho utility writes its arguments joined together to standard
+     output.
+
+     The necho utility writes its arguments, separated by spaces, to standard
+     output, followed by a <newline>.  If there are no arguments, only the
+     <newline> is written.
+
+OPTIONS
+     Implementations do not support any options, nor special handling of a
+     “--” argument.
+
+EXIT STATUS
+     These utilities exit 0 on success, and >0 if an error occurs.
+
+SEE ALSO
+     echo(1), printf(1)
+
+STANDARDS
+     secho is a POSIX-conforming, but not XSI-conforming implementation of
+     echo(1).
+
+AUTHORS
+     Leah Neukirchen <leah@vuxu.org>
+
+LICENSE
+     These utilities are in the public domain.
+
+     To the extent possible under law, the creator of this work has waived all
+     copyright and related or neighboring rights to this work.
+
+           http://creativecommons.org/publicdomain/zero/1.0/
+
+Void Linux                     October 19, 2017                     Void Linux
