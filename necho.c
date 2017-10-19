@@ -97,15 +97,19 @@ main(int argc, char *argv[])
 		}
 	} else if (*style == 'j' || (*style == 's' || *style == 'e')) {
 		struct iovec iov[SENSIBLE_IOV_MAX];
-		int j;
+		int j = 0;
 
-		for (i = 1; i < argc; ) {
+		i = 1;
+		if (argc == 1 && *style != 'j')
+			goto just_nl;
+		while (i < argc) {
 			for (j = 0; i < argc && j < SENSIBLE_IOV_MAX - 1; j++) {
 				iov[j].iov_base = argv[i];
 				iov[j].iov_len = strlen(argv[i]);
 				i++;
 				if (*style != 'j') {
 					j++;
+just_nl:
 					iov[j].iov_base = i == argc ? "\n" : " ";
 					iov[j].iov_len = 1;
 				}
