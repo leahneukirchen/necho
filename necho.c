@@ -52,7 +52,7 @@ safe_writev(int fd, struct iovec *iov, int iovcnt)
 		len -= wr;
 		if (len <= 0)
 			return 0;
-		
+
 		/* short write, clear emitted prefix of iovec */
 		for (i = 0; i < iovcnt && wr < (ssize_t)iov[i].iov_len; i++) {
 			wr -= iov[i].iov_len;
