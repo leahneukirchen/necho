@@ -55,6 +55,27 @@ These utilities exit 0 on success, and >0 if an error occurs.
 .Nm secho
 is a POSIX-conforming, but not XSI-conforming implementation of
 .Xr echo 1 .
+.Sh CAVEATS
+These tools use
+.Xr writev 2
+syscalls for efficient output.
+This generally works fine,
+but there is a problem with using this function when writing to
+the Linux
+.Xr proc 5
+filesystem:
+only the first buffer will be regarded as a write.
+.Pp
+Therefore,
+.Pp
+.Dl jecho 60 >/proc/sys/kernel/panic
+.Pp
+will work, but
+.Pp
+.Dl jecho 6 0 >/proc/sys/kernel/panic
+.Pp
+will just be regarded as a write of
+.Sq Li 6 .
 .Sh AUTHORS
 .An Leah Neukirchen Aq Mt leah@vuxu.org
 .Sh LICENSE
