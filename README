@@ -20,8 +20,8 @@ DESCRIPTION
      The qecho utility writes its arguments, surrounded by unicode quotation
      marks, to standard output.
 
-     The jecho utility writes its arguments joined together to standard
-     output.
+     The jecho utility writes its arguments joined together with no separators
+     to standard output.
 
      The secho utility writes its arguments, separated by spaces, to standard
      output, followed by a <newline>.  If there are no arguments, only the
@@ -40,6 +40,22 @@ SEE ALSO
 STANDARDS
      secho is a POSIX-conforming, but not XSI-conforming implementation of
      echo(1).
+
+CAVEATS
+     These tools use writev(2) syscalls for efficient output.  This generally
+     works fine, but there is a problem with using this function when writing
+     to the Linux proc(5) filesystem: only the first buffer will be regarded
+     as a write.
+
+     Therefore,
+
+           jecho 60 >/proc/sys/kernel/panic
+
+     will work, but
+
+           jecho 6 0 >/proc/sys/kernel/panic
+
+     will just be regarded as a write of ‘6’.
 
 AUTHORS
      Leah Neukirchen <leah@vuxu.org>
