@@ -16,10 +16,10 @@ README: necho.1
 necho: necho.c
 
 $(LINKS): necho
-	ln -sf $< $@
+	ln -sf necho $@
 
 $(LINKS:=.1): necho.1
-	ln -sf $< $@
+	ln -sf necho.1 $@
 
 install: FRC all
 	mkdir -p $(DESTDIR)$(BINDIR) $(DESTDIR)$(MANDIR)/man1
