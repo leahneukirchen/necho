@@ -21,6 +21,9 @@ $(LINKS): necho
 $(LINKS:=.1): necho.1
 	ln -sf necho.1 $@
 
+check: FRC all
+	prove -v
+
 install: FRC all
 	mkdir -p $(DESTDIR)$(BINDIR) $(DESTDIR)$(MANDIR)/man1
 	install -m0755 $(ALL) $(DESTDIR)$(BINDIR)
